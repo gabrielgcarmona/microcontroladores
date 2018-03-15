@@ -1,4 +1,3 @@
-
 #include <msp430.h>
 
 /*Usando MSP430FR2433*/
@@ -13,24 +12,29 @@
 void main(void)
 {
     void delay(long int* contador,long int* aux);
-    long int aux = 0;
+    long int aux;
+    int i;
 
 
 	WDTCTL = WDTPW | WDTHOLD;	// desabilita watchdog timer
 	PM5CTL0 &= ~LOCKLPM5;    // desabilita alta impedância
 	P1DIR = LED1 + LED2;
 	P1OUT = ~(LED1 + LED2);
-
-	P2DIR = 0;
+	P2OUT = 0xFF;
+	P2DIR = 0xF7;
 	    while(1){
-	        if(!(P2IN & BTN)){
-	            for(aux=0;aux < 3; aux++){
-                    P1OUT = ~(LED1 + LED2);
-                    for(aux=0;aux < CICLOS;aux++);
-                    P1OUT = LED1 + LED2;
-                    for(aux=0;aux < CICLOS;aux++);
-	            }
-	        }
+
 	        P1OUT = ~(LED1 + LED2);
+            while((P2IN & BTN)){}
+            for(i=0;i < 2; i++){
+                P1OUT = LED1 + LED2;
+                for(aux=0;aux < CICLOS;aux++);
+                P1OUT = ~(LED1 + LED2);
+                for(aux=0;aux < CICLOS;aux++);
+
+            }
+	        while(!(P2IN & BTN)){}
+
+
 	    }
 }
