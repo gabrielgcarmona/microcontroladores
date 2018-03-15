@@ -14,14 +14,21 @@
 		a |= 0x0F;
 
 2. Considerando a placa Launchpad do MSP430, escreva o código em C para piscar os dois LEDs ininterruptamente.
-
-
-
-
+	aula3_2.c
 3. Considerando a placa Launchpad do MSP430, escreva o código em C para piscar duas vezes os dois LEDs sempre que o usuário pressionar o botão.
-
+	aula3_3.c
 4. Considerando a placa Launchpad do MSP430, faça uma função em C que pisca os dois LEDs uma vez.
 
+	#define CICLOS 32768
+	void pisca(){
+		P1OUT = LED1 + LED2;
+		for(aux=0;aux < CICLOS;aux++);
+		P1OUT = ~(LED1 + LED2);
+		for(aux=0;aux < CICLOS;aux++);
+	}
+	
 5. Reescreva o código da questão 2 usando a função da questão 4.
+	aula3_5.c
 
 6. Reescreva o código da questão 3 usando a função da questão 4.
+	aula3_6.c

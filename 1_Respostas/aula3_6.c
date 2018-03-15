@@ -9,12 +9,19 @@
 #define CICLOS 32768
 
 
+void pisca(){
+    long int aux;
+
+    P1OUT = LED1 + LED2;
+    for(aux=0;aux < CICLOS;aux++);
+    P1OUT = ~(LED1 + LED2);
+    for(aux=0;aux < CICLOS;aux++);
+    }
+
 void main(void)
 {
 
-    long int aux;
     int i;
-
 
 	WDTCTL = WDTPW | WDTHOLD;	// desabilita watchdog timer
 	PM5CTL0 &= ~LOCKLPM5;    // desabilita alta impedância
@@ -27,11 +34,7 @@ void main(void)
 	        P1OUT = ~(LED1 + LED2);
             while((P2IN & BTN)){}
             for(i=0;i < 2; i++){
-                P1OUT = LED1 + LED2;
-                for(aux=0;aux < CICLOS;aux++);
-                P1OUT = ~(LED1 + LED2);
-                for(aux=0;aux < CICLOS;aux++);
-
+               pisca();
             }
 	        while(!(P2IN & BTN)){}
 
