@@ -9,7 +9,7 @@
 
 void main(void)
 {
-    void delay(long int* contador,long int* aux);
+    
     long int aux = 0;
 
 
