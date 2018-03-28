@@ -29,7 +29,14 @@ Utilize os registradores R11, R12, R13, R14 e R15 para armazenar valores tempor√
 		bic R11, R8
 	```
 	(e) Somente inverter o bit mais significativo de R9.
+	```Assembly
+		mov.w #0xF0, R11
+		
+	```
+	
 	(f) Inverter o nibble mais significativo de R10, e setar o nibble menos significativo de R10. 
+	```Assembly
+	```
 
 2. "Traduza" o seguinte trecho de c√≥digo em C para o assembly do MSP430:
 
