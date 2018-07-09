@@ -36,6 +36,11 @@ Utilize os registradores R11, R12, R13, R14 e R15 para armazenar valores temporÃ
 	
 	(f) Inverter o nibble mais significativo de R10, e setar o nibble menos significativo de R10. 
 	```Assembly
+		mov.w #0xF0, R11
+		xor.w R11, R10
+		mov.w #0x0F, R11
+		bis.w R11, R10
+		
 	```
 
 2. "Traduza" o seguinte trecho de cÃ³digo em C para o assembly do MSP430:
@@ -43,6 +48,9 @@ Utilize os registradores R11, R12, R13, R14 e R15 para armazenar valores temporÃ
 ```C
 if(i>j) f = g+h+10;
 else f = g-h-10;
+```
+```Assembly
+
 ```
 
 3. "Traduza" o seguinte trecho de cÃ³digo em C para o assembly do MSP430:
