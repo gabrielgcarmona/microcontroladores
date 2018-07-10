@@ -60,8 +60,27 @@ Fim:
 ```C
 int Potencia(int x, int N);
 ```
+```C
+int Potencia(int x, int N){
+	
+	int resultado = x;
+
+    	if (N = 0) return 1;
+
+    	while (N != 1){
+	    resultado *= x;
+	    N--;
+	}
+
+	return resultado;
+}
+```
 
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. `x` e `n` são fornecidos através dos registradores R15 e R14, respectivamente, e a saída deverá ser fornecida no registrador R15.
+```Assembly
+
+```
+
 
 3. Escreva uma sub-rotina na linguagem Assembly do MSP430 que calcula a divisão de `a` por `b`, onde `a`, `b` e o valor de saída são inteiros de 16 bits. `a` e `b` são fornecidos através dos registradores R15 e R14, respectivamente, e a saída deverá ser fornecida através do registrador R15.
 
